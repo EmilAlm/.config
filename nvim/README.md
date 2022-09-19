@@ -5,7 +5,7 @@ brew install --HEAD neovim
 ```
 
 ## Plugin/package management
-[packer](https://github.com/wbthomason/packer.nvim)
+Install [Packer](https://github.com/wbthomason/packer.nvim)
 ```
 git clone --depth 1 https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
@@ -37,7 +37,10 @@ GraphQL
 npm install -g graphql-language-service-cli
 ```
 
-
+## Utils
+```
+brew install fd
+```
 
 ## Treeshitter
 language parser
