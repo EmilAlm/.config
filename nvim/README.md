@@ -17,24 +17,9 @@ Lua
 brew install lua-language-server
 ```
 
-Typescript
+TypeScript, CSS, HTML, ESLint, JSON, Dockerfile, GraphQL
 ```
-npm install -g typescript typescript-language-server
-```
-
-CSS, HTML, ESLint, JSON
-```
-npm i -g vscode-langservers-extracted
-```
-
-Dockerfile
-```
-npm install -g dockerfile-language-server-nodejs
-```
-
-GraphQL
-```
-npm install -g graphql-language-service-cli
+npm i -g typescript typescript-language-server vscode-langservers-extracted dockerfile-language-server-nodejs graphql-language-service-cli
 ```
 
 ## Utils
@@ -55,16 +40,15 @@ brew install rg
 ```
 
 ## Formatter
-Run Prettier but fast
+Prettier but fast
 ```
 brew install fsouza/prettierd/prettierd
 ```
 
-Run ESLint but fast
+ESLint but fast
 ```
 npm install -g eslint_d
 ```
-
 
 # Terminal
 Download & install [warp](https://www.warp.dev/)
@@ -74,6 +58,5 @@ brew tap homebrew/cask-fonts && brew install --cask hack-nerd-font
 ```
 
 # Todo
-- [ ] enable ghost text in cmp when typing
 - [ ] improve lspkind symbols
 

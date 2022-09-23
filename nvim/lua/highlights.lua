@@ -1,6 +1,5 @@
 vim.cmd [[
   set completeopt=menuone,noinsert,noselect
-  highlight! default link CmpItemKind CmpItemMenuDefault
   set winbar=%=%m\ %f
 ]]
 vim.opt.termguicolors = true

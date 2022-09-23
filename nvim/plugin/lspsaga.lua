@@ -4,11 +4,18 @@ if (not status) then return end
 saga.init_lsp_saga {
   code_action_lightbulb = {
     enable = false,
-  }
+  },
+  finder_action_keys = {
+    open = "o",
+    vsplit = "v",
+    split = "h",
+    tabe = "t",
+    quit = "q",
+},
 }
 
 local opts = { silent = true }
-vim.keymap.set("n", "gd", "<cmd>Lspsaga lsp_finder<CR>", opts)
+vim.keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts)
 vim.keymap.set("n", "<leader>r", "<cmd>Lspsaga rename<CR>", opts)
 vim.keymap.set('n', 'K', '<Cmd>Lspsaga hover_doc<CR>', opts)
 vim.keymap.set('n', '<C-j>', '<Cmd>Lspsaga diagnostic_jump_next<CR>', opts)

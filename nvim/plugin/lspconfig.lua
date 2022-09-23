@@ -5,19 +5,20 @@ local protocol = require('vim.lsp.protocol')
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-
+local on_attach = function(_, bufnr)
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
   --Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
   local bufopts = { noremap = true, silent = true, buffer = bufnr }
+  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
   vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, bufopts)
   vim.keymap.set('n', '<space>f', vim.lsp.buf.format, bufopts)
+  vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, bufopts)
 end
 
 protocol.CompletionItemKind = {
@@ -53,17 +54,13 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(
   vim.lsp.protocol.make_client_capabilities()
 )
 
-nvim_lsp.flow.setup {
+nvim_lsp.tsserver.setup({
   on_attach = on_attach,
-  capabilities = capabilities
-}
-
-nvim_lsp.tsserver.setup {
-  on_attach = on_attach,
-  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+  filetypes = { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx",
+    "javascript.tsx" },
   cmd = { "typescript-language-server", "--stdio" },
   capabilities = capabilities
-}
+})
 
 nvim_lsp.sourcekit.setup {
   on_attach = on_attach,

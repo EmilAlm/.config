@@ -1,7 +1,11 @@
 local opt = vim.opt
+--
+-- disable netrw for nvim-tree
+vim.g.loaded = 1
+vim.g.loaded_netrwPlugin = 1
 
 -- Ignore files
-opt.wildignore:append { "*/node_modules/", ".git/" }
+opt.wildignore:append { "*/node_modules/", ".git/", "yarn.lock" }
 
 opt.showmode = false
 opt.showcmd = true
