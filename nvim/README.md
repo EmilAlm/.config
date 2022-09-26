@@ -22,6 +22,27 @@ TypeScript, CSS, HTML, ESLint, JSON, Dockerfile, GraphQL
 npm i -g typescript typescript-language-server vscode-langservers-extracted dockerfile-language-server-nodejs graphql-language-service-cli
 ```
 
+### Styled-components
+Enable syntax highlighting & intellisense by adding this extension in the workspace 
+
+```
+yarn add -D typescript-styled-plugin typescript
+```
+
+Then add a plugins section to your `tsconfig.json` or `jsconfig.json`
+```
+"plugins": [{
+  "name": "typescript-styled-plugin",
+  "tags": [
+    "styled",
+    "css",
+    "keyframes",
+    "createGlobalStyle"
+  ]
+}]
+```
+
+
 ## Utils
 ```
 brew install fd
