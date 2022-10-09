@@ -23,6 +23,7 @@ telescope.setup {
       theme = "dropdown",
       -- disables netrw and use telescope-file-browser in its place
       hijack_netrw = true,
+      hidden = true,
       mappings = {
         -- your custom insert mode mappings
         ["i"] = {
@@ -35,11 +36,7 @@ telescope.setup {
           ["d"] = fb_actions.remove,
           ["r"] = fb_actions.rename,
           ["m"] = fb_actions.move,
-          ["o"] = fb_actions.open,
-          ["w"] = fb_actions.goto_cwd,
-          ["/"] = function()
-            vim.cmd('startinsert')
-          end
+          ["h"] = fb_actions.goto_home_dir,
         },
       },
     },
